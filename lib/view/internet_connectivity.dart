@@ -1,28 +1,28 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
-class InternetConnectivity extends StatefulWidget {
-  const InternetConnectivity({Key? key}) : super(key: key);
+class InternetConnectvity extends StatefulWidget {
+  const InternetConnectvity({Key? key}) : super(key: key);
 
   @override
-  State<InternetConnectivity> createState() => _InternetConnectivityState();
+  State<InternetConnectvity> createState() => _InternetConnectvityState();
 }
 
-class _InternetConnectivityState extends State<InternetConnectivity> {
+class _InternetConnectvityState extends State<InternetConnectvity> {
   @override
   Widget build(BuildContext context) {
     Connectivity connectivity = Connectivity();
     return Scaffold(
       appBar: AppBar(
-        title: Text("InternetConnectivity"),
+        title: Text("Internet Connectivity"),
       ),
       body: StreamBuilder<ConnectivityResult>(
         stream: connectivity.onConnectivityChanged,
-        builder: (_, snapshot) {
+        builder: (context, snapshot) {
           return InternetConnectivityWidget(
             snapshot: snapshot,
-            widget: Text(" enjoy the wifi "),
+            widget: Center(child: Text("Enjoy the wifi")),
           );
         },
       ),
@@ -33,9 +33,11 @@ class _InternetConnectivityState extends State<InternetConnectivity> {
 class InternetConnectivityWidget extends StatelessWidget {
   final AsyncSnapshot<ConnectivityResult> snapshot;
   final Widget widget;
-  const InternetConnectivityWidget(
-      {Key? key, required this.snapshot, required this.widget})
-      : super(key: key);
+  const InternetConnectivityWidget({
+    Key? key,
+    required this.widget,
+    required this.snapshot,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +46,13 @@ class InternetConnectivityWidget extends StatelessWidget {
         final state = snapshot.data!;
         switch (state) {
           case ConnectivityResult.none:
-            return Text(" Not connected to internet");
+            return Center(
+                child: Center(child: Text("not Cont to the Internet ")));
           default:
             return widget;
         }
       default:
-        return Text('connected');
+        return Center(child: Text("connected"));
     }
   }
 }

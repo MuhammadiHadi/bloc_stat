@@ -36,6 +36,12 @@ class _HomeViewState extends State<HomeView> {
                 onPressed: () {
                   Navigator.pushNamed(context, 'connectivity');
                 }),
+            MaterialButton(
+                color: Colors.amberAccent[100],
+                child: Text("Internet Connectivity with bloc"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'connected');
+                }),
           ],
         ),
       ),

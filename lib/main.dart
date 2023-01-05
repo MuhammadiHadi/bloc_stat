@@ -1,4 +1,5 @@
 import 'package:bloc_stat/bloc/counter_bloc.dart';
+import 'package:bloc_stat/bloc/internet_connectivity_bloc/internet_connectivity_bloc.dart';
 import 'package:bloc_stat/route/app_route.dart';
 import 'package:bloc_stat/route/route_navigation.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => CounterBloc()),
+          BlocProvider(create: (_) => InternetConnectivityBloc()),
         ],
         child: MaterialApp(
           title: 'Flutter Demo',
