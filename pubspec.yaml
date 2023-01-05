@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc:
   fluttertoast:
   equatable:
+  connectivity_plus:
 
 
 dev_dependencies:

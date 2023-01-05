@@ -16,44 +16,26 @@ class _HomeViewState extends State<HomeView> {
     print("Counter Bloc");
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bloc State Management"),
+        title: Text("Flutter"),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            BlocBuilder<CounterBloc, CounterState>(builder: (context, state) {
-              if (state is CountState) {
-                return Text(
-                  " ${state.count}",
-                  style: TextStyle(fontSize: 25),
-                );
-              }
-              return Text("Hello");
-            }),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  MaterialButton(
-                      color: Colors.green,
-                      child: Text("+",
-                          style: TextStyle(fontSize: 25, color: Colors.white)),
-                      onPressed: () {
-                        context.read<CounterBloc>().add(InCount());
-                      }),
-                  MaterialButton(
-                      color: Colors.green,
-                      child: Text("-",
-                          style: TextStyle(fontSize: 25, color: Colors.white)),
-                      onPressed: () {
-                        context.read<CounterBloc>().add(dcrCount());
-                      }),
-                ],
-              ),
-            )
+            MaterialButton(
+                color: Colors.amberAccent[100],
+                child: Text("Counter View"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'count');
+                }),
+            MaterialButton(
+                color: Colors.amberAccent[100],
+                child: Text("Internet Connectivity"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'connectivity');
+                }),
           ],
         ),
       ),
